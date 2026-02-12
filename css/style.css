@@ -157,6 +157,8 @@ header {
     font-weight: 700;
     color: var(--white);
     letter-spacing: 1px;
+    margin-right: 2rem;
+    /* Added spacing to separate from nav */
 }
 
 .logo img {
@@ -191,11 +193,11 @@ header {
 
 /* Fix for active buttons visibility */
 .nav-links a.btn-primary.active {
-    color: var(--primary);
+    color: var(--primary) !important;
 }
 
 .nav-links a.btn-primary.active:hover {
-    color: var(--accent);
+    color: var(--accent) !important;
 }
 
 .nav-links a::after {
@@ -220,10 +222,9 @@ header {
 }
 
 .nav-links a i {
-    margin-right: 4px;
-    /* Reduced from 6px */
-    font-size: 0.75rem;
-    /* Reduced to match text size */
+    margin-right: 8px;
+    /* Slightly increased for visibility */
+    font-size: 0.8rem;
     color: var(--accent);
 }
 
@@ -234,7 +235,7 @@ header {
 
 /* Ensure hover icon color follows text */
 .nav-links a.btn-primary.active:hover i {
-    color: var(--accent);
+    color: var(--accent) !important;
 }
 
 /* Hero Section */
