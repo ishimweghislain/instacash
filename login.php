@@ -94,10 +94,10 @@
             </button>
             <div class="text-center">
                 <p class="small text-danger mb-2"><i class="bi bi-exclamation-circle"></i> This portal is for Admins only.</p>
-                <a href="index.php" class="btn btn-outline-secondary btn-sm w-100">
+                <a href="https://instacash.rw/index.php" class="btn btn-secondary w-100">
                     <i class="bi bi-arrow-left"></i> Back to Website
                 </a>
-                <p class="small text-muted mt-2">No credentials? Visit the <a href="contact.php">Contact Page</a>.</p>
+                <p class="small text-muted mt-2">No credentials? Visit the Contact Page on our website.</p>
             </div>
         </form>
     </div>
