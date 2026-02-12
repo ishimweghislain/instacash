@@ -4,159 +4,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Requirements - Instacash</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <title>Loan Requirements - Instacash</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-
-    <!-- Header -->
-    <header id="header">
-        <div class="container navbar">
+    <header>
+        <div class="container hero-grid" style="display:flex; justify-content:space-between; align-items:center;">
             <a href="index.html" class="logo">
                 <img src="logoofinstacash.png" alt="Instacash Logo">
-                <span>InstaCash</span>
+                <span>INSTACASH</span>
             </a>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
             <nav class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
                 <a href="services.html">Services</a>
-                <a href="requirements.html" class="active" style="color: var(--primary);">Requirements</a>
-                <a href="contact.html">Contact</a>
-                <a href="contact.html" class="btn btn-primary">Apply Now</a>
+                <a href="contact.php">Contact</a>
+                <a href="apply.php" class="btn btn-primary">Apply Now</a>
             </nav>
         </div>
     </header>
 
-    <!-- Page Hero -->
-    <section class="hero" style="min-height: 400px; height: 50vh;">
-        <div class="container hero-content" data-aos="fade-up">
-            <h1>Loan Requirements</h1>
-            <p>Ready to apply? Here is what you need to get started.</p>
-        </div>
-    </section>
+    <section class="section-padding" style="padding-top:150px;">
+        <div class="container">
+            <h1 class="text-center" style="margin-bottom:3rem;">Minimum Items Required</h1>
 
-    <!-- Requirements List -->
-    <section class="container" style="padding: 5rem 1rem;">
-        <div class="requirements-list" style="max-width: 800px; margin: 0 auto;">
-            <h2 class="section-title">Application Checklist</h2>
+            <div class="req-grid" style="grid-template-columns: 1fr 1fr; gap:3rem;">
 
-            <div class="requirement-item" data-aos="fade-up">
-                <div class="req-number">1</div>
-                <div>Completed Loan Application Form</div>
+                <!-- Salamy Advance Requirements -->
+                <div class="req-card">
+                    <div class="req-header">
+                        <h3>Salary Advance Loan</h3>
+                        <small>For Employees</small>
+                    </div>
+                    <ul class="req-list">
+                        <li><i class="fas fa-check-circle"></i> Non-refundable application fee: 10,000 Rwf</li>
+                        <li><i class="fas fa-check-circle"></i> Salary certificate (Required)</li>
+                        <li><i class="fas fa-check-circle"></i> Copy of employment contract (Required)</li>
+                        <li><i class="fas fa-check-circle"></i> Three (3) recent pay slips (Required)</li>
+                        <li><i class="fas fa-check-circle"></i> Marital status certificate (Required)</li>
+                        <li><i class="fas fa-check-circle"></i> 1 Passport photo (Required)</li>
+                        <li><i class="fas fa-check-circle"></i> Bank statement of the last 6 months (Required)</li>
+                        <li><i class="fas fa-info-circle"></i> Salary assignment / Commitment letter (Optional)</li>
+                    </ul>
+                </div>
+
+                <!-- Business / Emergency Requirements -->
+                <div class="req-card">
+                    <div class="req-header">
+                        <h3>Emergency / Business Loan</h3>
+                        <small>For Entrepreneurs & Immediate Cash </small>
+                    </div>
+                    <ul class="req-list">
+                        <li><i class="fas fa-check-circle"></i> Non-refundable application fee: 10,000 Rwf</li>
+                        <li><i class="fas fa-check-circle"></i> Copy of ID (Required)</li>
+                        <li><i class="fas fa-check-circle"></i> Copy of Spouse/Guarantor ID (Required)</li>
+                        <li><i class="fas fa-check-circle"></i> Marital status certificate (Required)</li>
+                        <li><i class="fas fa-check-circle"></i> Bank statement of the last 6 months (Required)</li>
+                        <li><i class="fas fa-check-circle"></i> Collateral expertise (Required)</li>
+                    </ul>
+                </div>
+
             </div>
 
-            <div class="requirement-item" data-aos="fade-up" data-aos-delay="50">
-                <div class="req-number">2</div>
-                <div>Bank Statement (Last 6 Months)</div>
+            <div style="margin-top:4rem; text-align:center;">
+                <h2 style="margin-bottom:2rem;">Other Mandatory Charges</h2>
+                <p>Paid directly to third parties – not INSTACASH Ltd</p>
+
+                <div
+                    style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:2rem; margin-top:2rem;">
+                    <div class="glass-card">
+                        <h4 style="color:#fcb900;">Notary Fee</h4>
+                        <p style="font-size:1.5rem; font-weight:700;">13,000 Rwf</p>
+                    </div>
+                    <div class="glass-card">
+                        <h4 style="color:#fcb900;">RDB Collateral Registration</h4>
+                        <p style="font-size:1.5rem; font-weight:700;">20,000 Rwf</p>
+                    </div>
+                    <div class="glass-card">
+                        <h4 style="color:#fcb900;">Restructuring Fee</h4>
+                        <p style="font-size:1.5rem; font-weight:700;">7%</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="requirement-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="req-number">3</div>
-                <div>Copy of National ID (for Individuals)</div>
+            <div class="text-center" style="margin-top:4rem;">
+                <p style="font-size:1.2rem; color:#8892b0; max-width:700px; margin:0 auto;">
+                    <strong>IMPORTANT NOTICE:</strong> INSTACASH Ltd does not collect third-party fees.
+                    These are paid directly to the respective service providers.
+                </p>
+                <div style="margin-top:2rem;">
+                    <a href="apply.php" class="btn btn-primary">Proceed to Application</a>
+                </div>
             </div>
 
-            <div class="requirement-item" data-aos="fade-up" data-aos-delay="150">
-                <div class="req-number">4</div>
-                <div>RDB Registration Certificate (for Companies)</div>
-            </div>
-
-            <div class="requirement-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="req-number">5</div>
-                <div>Marital Status Certificate</div>
-            </div>
-
-            <div class="requirement-item" data-aos="fade-up" data-aos-delay="250">
-                <div class="req-number">6</div>
-                <div>Employment Contract (if employed)</div>
-            </div>
-
-            <div class="requirement-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="req-number">7</div>
-                <div>Collateral Specifications & Valuation Report</div>
-            </div>
-
-            <div class="requirement-item" data-aos="fade-up" data-aos-delay="350">
-                <div class="req-number">8</div>
-                <div>Verification of Repayment Source (e.g., Invoices)</div>
-            </div>
-
-            <div class="requirement-item" data-aos="fade-up" data-aos-delay="400">
-                <div class="req-number">9</div>
-                <div>Tax Clearance Certificate</div>
-            </div>
-
-            <div class="requirement-item" data-aos="fade-up" data-aos-delay="450">
-                <div class="req-number">10</div>
-                <div>Clean CRB (Credit Reference Bureau) Report</div>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="contact.html" class="btn btn-primary">Start Application</a>
-            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container footer-grid">
-            <div>
-                <div class="footer-logo">
-                    <img src="logoofinstacash.png" alt="Instacash Logo" style="height: 30px;">
-                    <span>InstaCash</span>
-                </div>
-                <p>Making finance accessible to everyone.</p>
-            </div>
-            <div>
-                <h4>Quick Links</h4>
-                <ul style="line-height: 2;">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Contact Us</h4>
-                <div style="margin-top: 1rem;">
-                    <p><i class="fas fa-phone"></i> 0798815491 / 0788421599</p>
-                    <p><i class="fas fa-envelope"></i> info@instacash.rw</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</p>
-                </div>
-                <div class="footer-social">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="container"
-            style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
-            &copy; 2026 Instacash. All Rights Reserved.
-        </div>
+    <footer style="text-align:center; padding:2rem; border-top:1px solid rgba(255,255,255,0.1);">
+        <p>&copy; 2026 Instacash Ltd.</p>
     </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
-        const mobileBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        mobileBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
-        });
-    </script>
 </body>
 
 </html>
