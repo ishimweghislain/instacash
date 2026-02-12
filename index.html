@@ -5,1447 +5,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instacash | Quick & Accessible Financial Solutions</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <style>
-        /* CSS Variables for consistent theming */
-        :root {
-            --primary: #1a5276;
-            --secondary: #2e86c1;
-            --accent: #f39c12;
-            --light: #f8f9fa;
-            --dark: #2c3e50;
-            --success: #28a745;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-            --radius: 8px;
-        }
-
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        p {
-            margin-bottom: 15px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            border-radius: var(--radius);
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            text-align: center;
-        }
-
-        .btn:hover {
-            background-color: #e67e22;
-            transform: translateY(-2px);
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-        }
-
-        .btn-primary:hover {
-            background-color: #154360;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent);
-            margin: 15px auto 0;
-        }
-
-        /* Header Styles */
-        header {
-            background-color: black;
-            color: white;
-            box-shadow: var(--shadow);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: #fff;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .logo i {
-            margin-right: 10px;
-            font-size: 32px;
-            color: var(--accent);
-            filter: drop-shadow(0 0 8px rgba(243, 156, 18, 0.4));
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--accent);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(26, 82, 118, 0.9)), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 180px 0 100px;
-            margin-top: 80px;
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 20px;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        /* Stats Section */
-        .stats {
-            background-color: var(--primary);
-            color: white;
-            padding: 60px 0;
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 20px;
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--accent);
-        }
-
-        .stat-text {
-            font-size: 1.1rem;
-        }
-
-        /* Mission & Vision Section */
-        .mission-vision {
-            background-color: white;
-        }
-
-        .mv-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .mv-card {
-            flex: 1;
-            min-width: 300px;
-            background-color: var(--light);
-            padding: 40px 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-            border-top: 4px solid var(--accent);
-        }
-
-        .mv-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .mv-icon {
-            font-size: 48px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        /* Core Values Section */
-        .core-values {
-            background-color: #f0f3f5;
-        }
-
-        .values-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .value-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-            border-left: 4px solid var(--accent);
-        }
-
-        .value-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .value-icon {
-            font-size: 40px;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-
-        /* About Section */
-        .about {
-            background-color: white;
-        }
-
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: var(--transition);
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Services Section */
-        .services {
-            background-color: #f0f3f5;
-        }
-
-        .services-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background-color: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .service-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .service-card:hover .service-img img {
-            transform: scale(1.1);
-        }
-
-        .service-content {
-            padding: 25px;
-        }
-
-        .service-icon {
-            font-size: 36px;
-            color: var(--accent);
-            margin-bottom: 15px;
-        }
-
-        /* Loan Requirements Section */
-        .requirements {
-            background-color: white;
-        }
-
-        .requirements-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        .requirements-list {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .requirement-item {
-            background-color: var(--light);
-            margin-bottom: 15px;
-            padding: 20px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            display: flex;
-            align-items: center;
-            transition: var(--transition);
-        }
-
-        .requirement-item:hover {
-            transform: translateX(5px);
-        }
-
-        .requirement-number {
-            background-color: var(--primary);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            flex-shrink: 0;
-            font-weight: 700;
-        }
-
-        .requirements-info {
-            flex: 1;
-            min-width: 300px;
-            background-color: var(--light);
-            padding: 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .info-box {
-            background-color: white;
-            padding: 20px;
-            border-radius: var(--radius);
-            margin-bottom: 20px;
-            border-left: 4px solid var(--accent);
-        }
-
-        /* Process Section */
-        .process {
-            background-color: #f0f3f5;
-        }
-
-        .process-steps {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            position: relative;
-        }
-
-        .process-step {
-            flex: 1;
-            min-width: 200px;
-            max-width: 250px;
-            text-align: center;
-            position: relative;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 24px;
-            font-weight: 700;
-            position: relative;
-            z-index: 2;
-        }
-
-        .step-content {
-            background-color: white;
-            padding: 25px 15px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .step-icon {
-            font-size: 36px;
-            color: var(--accent);
-            margin-bottom: 15px;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background-color: white;
-        }
-
-        .testimonials-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-        }
-
-        .testimonial-card {
-            flex: 1;
-            min-width: 300px;
-            max-width: 350px;
-            background-color: var(--light);
-            padding: 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .author-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-        }
-
-        .author-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            margin-bottom: 5px;
-        }
-
-        .author-info p {
-            margin-bottom: 0;
-            color: var(--secondary);
-            font-size: 0.9rem;
-        }
-
-        .quote-icon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            color: var(--accent);
-            opacity: 0.3;
-        }
-
-        /* Team Section */
-        .team {
-            background-color: #f0f3f5;
-        }
-
-        .team-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .team-member {
-            background-color: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-        }
-
-        .member-img {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .member-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .team-member:hover .member-img img {
-            transform: scale(1.1);
-        }
-
-        .member-info {
-            padding: 20px;
-        }
-
-        .member-social {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .social-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background-color: var(--light);
-            border-radius: 50%;
-            color: var(--primary);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-icon:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        /* Contact Section */
-        .contact {
-            background-color: white;
-        }
-
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .contact-details {
-            margin-top: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .contact-icon {
-            background-color: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
-            background-color: var(--light);
-            padding: 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: var(--radius);
-            font-size: 16px;
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.1);
-        }
-
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 60px 0 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-logo {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .footer-logo span {
-            color: var(--accent);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .footer-social {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-social:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            opacity: 0;
-            visibility: hidden;
-            z-index: 999;
-        }
-
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: var(--shadow);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links li {
-                margin: 10px 0;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            .hero-btns {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .hero-btns .btn {
-                width: 100%;
-                max-width: 250px;
-            }
-        }
-
-        /* Animation Classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
     <!-- Header -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">
-                    <i class="fas fa-bolt-lightning"></i>
-                    <span>Insta</span>Cash
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#process">Process</a></li>
-                    <li><a href="#requirements">Requirements</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#" class="btn btn-primary">Apply Now</a></li>
-                </ul>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
+    <header id="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <img src="logoofinstacash.png" alt="Instacash Logo">
+                <span>InstaCash</span>
+            </a>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="requirements.html">Requirements</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="btn btn-primary">Apply Now</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1 data-aos="fade-up">Quick & Easy Finance For Our Community</h1>
-            <p data-aos="fade-up" data-aos-delay="200">We're committed to making finance accessible to individuals,
-                businesses and communities often overlooked by the conventional financial system.</p>
-            <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
-                <a href="#contact" class="btn">Apply For Loan</a>
-                <a href="#services" class="btn btn-outline">Our Services</a>
+    <section class="hero">
+        <div class="container hero-content" data-aos="fade-up">
+            <h1>Quick Financial Solutions for Your Needs</h1>
+            <p>Empowering individuals and businesses with accessible loans and financial services. We are here to help
+                you grow.</p>
+            <div class="hero-btns">
+                <a href="contact.html" class="btn btn-primary">Get Started</a>
+                <a href="services.html" class="btn btn-outline">Our Services</a>
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-container">
-                <div class="stat-item" data-aos="fade-up">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-text">Years of Experience</div>
+    <div class="stats">
+        <div class="container stats-grid">
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-number">5k+</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-number">$50M+</div>
+                <div class="stat-label">Disbursed</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Satisfaction</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Preview -->
+    <section class="container" style="padding: 5rem 1rem;">
+        <div class="section-title">Who We Are</div>
+        <div class="card-grid">
+            <div class="card" data-aos="fade-right">
+                <div class="card-content">
+                    <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3 class="card-title">Our Mission</h3>
+                    <p class="card-text">To provide accessible financial solutions that empower our community to achieve
+                        their goals.</p>
                 </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-number">5,000+</div>
-                    <div class="stat-text">Clients Served</div>
-                </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-number">$50M+</div>
-                    <div class="stat-text">Loans Disbursed</div>
-                </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-text">Customer Satisfaction</div>
+            </div>
+            <div class="card" data-aos="fade-left">
+                <div class="card-content">
+                    <div class="card-icon"><i class="fas fa-eye"></i></div>
+                    <h3 class="card-title">Our Vision</h3>
+                    <p class="card-text">To be the leading financial partner for underserved individuals and businesses
+                        in the region.</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Mission & Vision Section -->
-    <section class="mission-vision">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Our Mission & Vision</h2>
-            <div class="mv-container">
-                <div class="mv-card" data-aos="fade-right">
-                    <div class="mv-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3>Our Mission</h3>
-                    <p>Our mission is to be the preferred provider of targeted financial services in our community
-                        through tailor-made products and strong customer relationships.</p>
-                    <p>We focus on understanding the unique needs of each client and creating financial solutions that
-                        help them achieve their goals.</p>
-                </div>
-                <div class="mv-card" data-aos="fade-left">
-                    <div class="mv-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Our Vision</h3>
-                    <p>To provide quick and easy finance to our community, breaking down financial barriers and ensuring
-                        equal access to financial services for all.</p>
-                    <p>We envision a future where everyone has the financial tools they need to thrive, regardless of
-                        their background or circumstances.</p>
-                </div>
-            </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="about.html" class="btn btn-outline"
+                style="color: var(--primary); border-color: var(--primary);">Read More About Us</a>
         </div>
     </section>
 
-    <!-- Core Values Section -->
-    <section class="core-values">
+    <!-- Services Preview -->
+    <section style="background-color: var(--light); padding: 5rem 0;">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Our Core Values</h2>
-            <div class="values-container">
-                <div class="value-card" data-aos="fade-up">
-                    <div class="value-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3>Excellency</h3>
-                    <p>We strive for excellence in all our services, ensuring the highest quality standards in every
-                        interaction and transaction.</p>
-                </div>
-                <div class="value-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Trust & Integrity</h3>
-                    <p>We build lasting relationships based on trust, transparency, and integrity. Our clients'
-                        confidence is our most valuable asset.</p>
-                </div>
-                <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Customer Centricity</h3>
-                    <p>Our customers are at the heart of everything we do, driving our decisions and innovations to
-                        serve them better.</p>
-                </div>
-                <div class="value-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="value-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Teamwork</h3>
-                    <p>We believe in the power of collaboration to achieve exceptional results for our clients and our
-                        community.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">About Us</h2>
-            <div class="about-content">
-                <div class="about-text" data-aos="fade-right">
-                    <p>At Instacash, we are committed to making finance accessible to individuals, businesses and
-                        communities often overlooked by the conventional financial system.</p>
-                    <p>As a registered Non-Deposit Taking Financial Service Provider (NDFSP), our mission is to bridge
-                        the gap for the unserved population—those who struggle to access funds through traditional
-                        channels or require financial solutions that are faster and more flexible.</p>
-                    <p>Guided by our core values, we strive to break down financial barriers and ensure equal access to
-                        financial services for all. We believe that everyone—regardless of their background or
-                        circumstances—deserves the opportunity to achieve their financial goals.</p>
-                    <p>With over 15 years of experience in the financial sector, our team of experts understands the
-                        unique challenges faced by individuals and small businesses when seeking financing. We've
-                        designed our processes to be more inclusive, responsive, and tailored to meet real-world needs.
-                    </p>
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                </div>
-                <div class="about-image" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                        alt="Financial Services">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Our Financial Services</h2>
-            <div class="services-container">
-                <div class="service-card" data-aos="fade-up">
-                    <div class="service-img">
+            <h2 class="section-title">Our Services</h2>
+            <div class="card-grid">
+                <div class="card" data-aos="fade-up">
+                    <div class="card-img">
                         <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
                             alt="Personal Loans">
                     </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <h3>Personal Loans</h3>
-                        <p>Flexible personal loans designed to meet your individual needs, whether for education, home
-                            improvement, medical expenses, or debt consolidation.</p>
-                        <a href="#" class="btn btn-outline">Learn More</a>
+                    <div class="card-content">
+                        <h3 class="card-title">Personal Loans</h3>
+                        <p>Flexible loans for your personal needs, from education to home improvement.</p>
+                        <a href="services.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-img">
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-img">
                         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
                             alt="Business Loans">
                     </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <h3>Business Loans</h3>
-                        <p>Tailored financing solutions for businesses of all sizes, from startups to established
-                            enterprises, to support growth and operational needs.</p>
-                        <a href="#" class="btn btn-outline">Learn More</a>
+                    <div class="card-content">
+                        <h3 class="card-title">Business Loans</h3>
+                        <p>Capital to help your business grow and thrive in a competitive market.</p>
+                        <a href="services.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-img">
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-img">
                         <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            alt="Community Financing">
+                            alt="Community Finance">
                     </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <h3>Community Financing</h3>
-                        <p>Specialized financial products designed to support community projects, local initiatives, and
-                            underserved populations.</p>
-                        <a href="#" class="btn btn-outline">Learn More</a>
+                    <div class="card-content">
+                        <h3 class="card-title">Community Finance</h3>
+                        <p>Supporting local initiatives and community development projects.</p>
+                        <a href="services.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Loan Requirements Section -->
-    <section class="requirements" id="requirements">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Loan Application Requirements</h2>
-            <div class="requirements-container">
-                <div class="requirements-list" data-aos="fade-right">
-                    <div class="requirement-item">
-                        <div class="requirement-number">1</div>
-                        <p>Well filled loan application form</p>
-                    </div>
-                    <div class="requirement-item">
-                        <div class="requirement-number">2</div>
-                        <p>Bank statement for the past 6 months</p>
-                    </div>
-                    <div class="requirement-item">
-                        <div class="requirement-number">3</div>
-                        <p>Photocopy of ID for an applicant if it is an individual</p>
-                    </div>
-                    <div class="requirement-item">
-                        <div class="requirement-number">4</div>
-                        <p>RDB Certificate for Company</p>
-                    </div>
-                    <div class="requirement-item">
-                        <div class="requirement-number">5</div>
-                        <p>Marital status certificate</p>
-                    </div>
-                    <div class="requirement-item">
-                        <div class="requirement-number">6</div>
-                        <p>Employment contract in case is an employee</p>
-                    </div>
-                    <div class="requirement-item">
-                        <div class="requirement-number">7</div>
-                        <p>Collateral specifications and valuation report</p>
-                    </div>
-                    <div class="requirement-item">
-                        <div class="requirement-number">8</div>
-                        <p>Repayment source verification i.e., issued invoices</p>
-                    </div>
-                    <div class="requirement-item">
-                        <div class="requirement-number">9</div>
-                        <p>Tax clearance certificate</p>
-                    </div>
-                    <div class="requirement-item">
-                        <div class="requirement-number">10</div>
-                        <p>Clean CRB report</p>
-                    </div>
-                </div>
-                <div class="requirements-info" data-aos="fade-left">
-                    <h3>Application Process Information</h3>
-                    <div class="info-box">
-                        <h4>Processing Time</h4>
-                        <p>Most loan applications are processed within 3-5 business days once all required documents are
-                            submitted.</p>
-                    </div>
-                    <div class="info-box">
-                        <h4>Document Verification</h4>
-                        <p>All submitted documents undergo verification to ensure authenticity and accuracy.</p>
-                    </div>
-                    <div class="info-box">
-                        <h4>Credit Assessment</h4>
-                        <p>We conduct a comprehensive credit assessment to determine loan eligibility and terms.</p>
-                    </div>
-                    <div class="info-box">
-                        <h4>Need Assistance?</h4>
-                        <p>Our customer service team is available to help you gather the required documents and answer
-                            any questions.</p>
-                        <a href="#contact" class="btn">Contact Us</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="process" id="process">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Our Simple Loan Process</h2>
-            <div class="process-steps">
-                <div class="process-step" data-aos="fade-up">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <h3>Application</h3>
-                        <p>Submit your loan application along with the required documents.</p>
-                    </div>
-                </div>
-                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h3>Review</h3>
-                        <p>Our team reviews your application and verifies your documents.</p>
-                    </div>
-                </div>
-                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <h3>Approval</h3>
-                        <p>Receive loan approval with customized terms and conditions.</p>
-                    </div>
-                </div>
-                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fas fa-money-bill-wave"></i>
-                        </div>
-                        <h3>Disbursement</h3>
-                        <p>Get your funds quickly transferred to your account.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">What Our Clients Say</h2>
-            <div class="testimonials-container">
-                <div class="testimonial-card" data-aos="fade-up">
-                    <div class="quote-icon">
-                        <i class="fas fa-quote-right"></i>
-                    </div>
-                    <div class="testimonial-text">
-                        "Instacash helped me secure a business loan when traditional banks turned me down. Their process
-                        was straightforward, and the team was incredibly supportive throughout."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
-                        </div>
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>Small Business Owner</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="quote-icon">
-                        <i class="fas fa-quote-right"></i>
-                    </div>
-                    <div class="testimonial-text">
-                        "The personal loan I received allowed me to consolidate my debts and save significantly on
-                        interest. The application process was quick and hassle-free."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Brown">
-                        </div>
-                        <div class="author-info">
-                            <h4>Michael Brown</h4>
-                            <p>Teacher</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="quote-icon">
-                        <i class="fas fa-quote-right"></i>
-                    </div>
-                    <div class="testimonial-text">
-                        "As a startup, finding financing was challenging until we discovered Instacash. They understood
-                        our vision and provided the capital we needed to grow."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Jessica Williams">
-                        </div>
-                        <div class="author-info">
-                            <h4>Jessica Williams</h4>
-                            <p>Tech Startup Founder</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Meet Our Leadership Team</h2>
-            <div class="team-container">
-                <div class="team-member" data-aos="fade-up">
-                    <div class="member-img">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            alt="Robert Smith">
-                    </div>
-                    <div class="member-info">
-                        <h3>Robert Smith</h3>
-                        <p>Chief Executive Officer</p>
-                        <p>With over 20 years in financial services, Robert leads our vision of inclusive finance.</p>
-                        <div class="member-social">
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-member" data-aos="fade-up" data-aos-delay="100">
-                    <div class="member-img">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            alt="Jennifer Lee">
-                    </div>
-                    <div class="member-info">
-                        <h3>Jennifer Lee</h3>
-                        <p>Chief Operations Officer</p>
-                        <p>Jennifer ensures our operations run smoothly and clients receive exceptional service.</p>
-                        <div class="member-social">
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-member" data-aos="fade-up" data-aos-delay="200">
-                    <div class="member-img">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            alt="David Wilson">
-                    </div>
-                    <div class="member-info">
-                        <h3>David Wilson</h3>
-                        <p>Head of Risk Management</p>
-                        <p>David oversees our risk assessment processes to ensure responsible lending practices.</p>
-                        <div class="member-social">
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
-            <div class="contact-container">
-                <div class="contact-info" data-aos="fade-right">
-                    <h3>Get In Touch</h3>
-                    <p>We're here to help you achieve your financial goals. Reach out to us with any questions or to
-                        start your loan application process.</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>0798815491 / 0788421599</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h4>Email</h4>
-                                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                        data-cfemail="4a292b3a233e2b262c23242b2429232b26263e2e0a2d38253f3a3964253f3e2625252164292527">[email&#160;protected]</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <h4>Office Location</h4>
-                                <p> Kigali, Rwanda</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div>
-                                <h4>Business Hours</h4>
-                                <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
-                                <p>Saturday: 9:00 AM - 1:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form" data-aos="fade-left">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service" class="form-control" required>
-                                <option value="">Select a service</option>
-                                <option value="personal">Personal Loan</option>
-                                <option value="business">Business Loan</option>
-                                <option value="community">Community Financing</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" class="form-control" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -1453,133 +146,68 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <div class="footer-logo"><i class="fas fa-bolt-lightning"></i> Insta<span>Cash</span></div>
-                    <p>Making finance accessible to individuals, businesses and communities often overlooked by the
-                        conventional financial system.</p>
-                    <div class="social-links">
-                        <a href="#" class="footer-social"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="footer-social"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="footer-social"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="footer-social"><i class="fab fa-instagram"></i></a>
-                    </div>
+        <div class="container footer-grid">
+            <div>
+                <div class="footer-logo">
+                    <img src="logoofinstacash.png" alt="Instacash Logo" style="height: 30px;">
+                    <span>InstaCash</span>
                 </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#process">Application Process</a></li>
-                        <li><a href="#requirements">Loan Requirements</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                <p>Making finance accessible to everyone.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul style="line-height: 2;">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Us</h4>
+                <div style="margin-top: 1rem;">
+                    <p><i class="fas fa-phone"></i> 0798815491 / 0788421599</p>
+                    <p><i class="fas fa-envelope"></i> info@instacash.rw</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</p>
                 </div>
-                <div class="footer-column">
-                    <h3>Our Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Personal Loans</a></li>
-                        <li><a href="#">Business Loans</a></li>
-                        <li><a href="#">Community Financing</a></li>
-                        <li><a href="#">Financial Consultancy</a></li>
-                        <li><a href="#">Debt Consolidation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Legal</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Compliance</a></li>
-                        <li><a href="#">Disclosures</a></li>
-                    </ul>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2023 Instacash. All Rights Reserved. | Registered Non-Deposit Taking Financial Service
-                    Provider (NDFSP)</p>
-            </div>
+        </div>
+        <div class="container"
+            style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
+            &copy; 2026 Instacash. All Rights Reserved.
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-chevron-up"></i>
-    </a>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // Initialize AOS (Animate On Scroll)
         AOS.init({
             duration: 800,
-            once: true,
-            offset: 100
+            once: true
         });
 
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function () {
-            document.querySelector('.nav-links').classList.toggle('active');
+        // Mobile Menu
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-
-                    // Close mobile menu if open
-                    document.querySelector('.nav-links').classList.remove('active');
-                }
-            });
-        });
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
-        });
-
-        // Back to top button
-        const backToTopButton = document.querySelector('.back-to-top');
-
-        window.addEventListener('scroll', function () {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('active');
+        // Sticky Header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
             } else {
-                backToTopButton.classList.remove('active');
+                header.classList.remove('scrolled');
             }
         });
-
-        // Fade in elements on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-
-        const fadeInOnScroll = function () {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', fadeInOnScroll);
-        // Initial check
-        fadeInOnScroll();
     </script>
 </body>
 
