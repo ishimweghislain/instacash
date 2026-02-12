@@ -6,12 +6,7 @@ if (!isset($_SESSION['admin_id'])) {
 }
 require '../includes/db.php';
 
-// Get statistics
-$totalApplications = $pdo->query("SELECT COUNT(*) FROM applications")->fetchColumn();
-$totalInquiries = $pdo->query("SELECT COUNT(*) FROM inquiries")->fetchColumn();
-$pendingApplications = $pdo->query("SELECT COUNT(*) FROM applications WHERE status = 'Pending'")->fetchColumn();
-$approvedApplications = $pdo->query("SELECT COUNT(*) FROM applications WHERE status = 'Approved'")->fetchColumn();
-
+// Fetch all applications
 $applications = $pdo->query("SELECT * FROM applications ORDER BY submitted_at DESC")->fetchAll();
 ?>
 <!DOCTYPE html>
@@ -19,7 +14,7 @@ $applications = $pdo->query("SELECT * FROM applications ORDER BY submitted_at DE
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Instacash</title>
+    <title>Applications - Instacash Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <style>
@@ -80,38 +75,7 @@ $applications = $pdo->query("SELECT * FROM applications ORDER BY submitted_at DE
             padding: 2rem;
             background-color: #0a194f;
             min-height: 100vh;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-        
-        .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(252, 185, 0, 0.3);
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-        }
-        
-        .stat-card i {
-            font-size: 2.5rem;
-            color: #fcb900;
-            margin-bottom: 1rem;
-        }
-        
-        .stat-card h3 {
-            font-size: 2rem;
-            color: #fff;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-card p {
-            color: #8892b0;
-            font-size: 0.9rem;
+            padding-bottom: 100px;
         }
         
         .table-container {
@@ -273,7 +237,7 @@ $applications = $pdo->query("SELECT * FROM applications ORDER BY submitted_at DE
         /* Responsive Design */
         @media (max-width: 968px) {
             .dashboard-container {
-                grid-template-columns: 1fr;
+                display: block;
             }
             
             .sidebar {
@@ -284,23 +248,6 @@ $applications = $pdo->query("SELECT * FROM applications ORDER BY submitted_at DE
                 margin-left: 0;
                 padding: 1.5rem;
                 padding-bottom: 80px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-            
-            .stat-card {
-                padding: 1rem;
-            }
-            
-            .stat-card i {
-                font-size: 2rem;
-            }
-            
-            .stat-card h3 {
-                font-size: 1.5rem;
             }
             
             footer {
@@ -343,17 +290,6 @@ $applications = $pdo->query("SELECT * FROM applications ORDER BY submitted_at DE
                 color: #fcb900;
                 transform: translateY(-2px);
             }
-            
-            th, td {
-                padding: 8px;
-                font-size: 0.85rem;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -361,10 +297,10 @@ $applications = $pdo->query("SELECT * FROM applications ORDER BY submitted_at DE
     <div class="dashboard-container">
         <div class="sidebar">
             <h2><i class="fas fa-shield-halved"></i> Admin</h2>
-            <a href="dashboard.php" class="active">
+            <a href="dashboard.php">
                 <i class="fas fa-chart-line"></i> Dashboard
             </a>
-            <a href="applications.php">
+            <a href="applications.php" class="active">
                 <i class="fas fa-file-invoice-dollar"></i> Applications
             </a>
             <a href="inquiries.php">
@@ -379,33 +315,8 @@ $applications = $pdo->query("SELECT * FROM applications ORDER BY submitted_at DE
         </div>
         
         <div class="main-content">
-            <h1 style="font-size: 2rem; margin-bottom: 2rem;">Dashboard Overview</h1>
+            <h1 style="font-size: 2rem; margin-bottom: 2rem;">All Applications</h1>
             
-            <!-- Statistics -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <i class="fas fa-file-alt"></i>
-                    <h3><?= $totalApplications ?></h3>
-                    <p>Total Applications</p>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-clock"></i>
-                    <h3><?= $pendingApplications ?></h3>
-                    <p>Pending</p>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-check-circle"></i>
-                    <h3><?= $approvedApplications ?></h3>
-                    <p>Approved</p>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-envelope-open-text"></i>
-                    <h3><?= $totalInquiries ?></h3>
-                    <p>Inquiries</p>
-                </div>
-            </div>
-            
-            <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: #fcb900;">Recent Applications</h2>
             <div class="table-container">
                 <table>
                     <thead>
@@ -414,6 +325,7 @@ $applications = $pdo->query("SELECT * FROM applications ORDER BY submitted_at DE
                             <th>Name</th>
                             <th>Type</th>
                             <th>Amount</th>
+                            <th>Income</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -421,14 +333,15 @@ $applications = $pdo->query("SELECT * FROM applications ORDER BY submitted_at DE
                     <tbody>
                         <?php foreach($applications as $app): ?>
                         <tr>
-                            <td><?= date('M d', strtotime($app['submitted_at'])) ?></td>
-                            <td><?= htmlspecialchars($app['first_name']) ?> <?= htmlspecialchars(substr($app['last_name'], 0, 1)) ?>.</td>
+                            <td><?= date('M d, Y', strtotime($app['submitted_at'])) ?></td>
+                            <td><?= htmlspecialchars($app['first_name'] . ' ' . $app['last_name']) ?></td>
                             <td><?= htmlspecialchars($app['loan_type']) ?></td>
-                            <td><?= number_format($app['amount']) ?></td>
+                            <td><?= number_format($app['amount']) ?> Rwf</td>
+                            <td><?= number_format($app['monthly_income']) ?> Rwf</td>
                             <td><span class="status-badge <?= strtolower($app['status']) ?>"><?= $app['status'] ?></span></td>
                             <td>
                                 <a href="#" class="btn-view" onclick="viewApplication(<?= htmlspecialchars(json_encode($app)) ?>); return false;">
-                                    <i class="fas fa-eye"></i>
+                                    <i class="fas fa-eye"></i> View
                                 </a>
                             </td>
                         </tr>
@@ -441,11 +354,11 @@ $applications = $pdo->query("SELECT * FROM applications ORDER BY submitted_at DE
     
     <!-- Mobile Bottom Navigation -->
     <nav class="admin-bottom-nav">
-        <a href="dashboard.php" class="active">
+        <a href="dashboard.php">
             <i class="fas fa-chart-line"></i>
             <span>Dashboard</span>
         </a>
-        <a href="applications.php">
+        <a href="applications.php" class="active">
             <i class="fas fa-file-invoice-dollar"></i>
             <span>Apps</span>
         </a>
@@ -457,10 +370,7 @@ $applications = $pdo->query("SELECT * FROM applications ORDER BY submitted_at DE
             <i class="fas fa-cog"></i>
             <span>Settings</span>
         </a>
-        <a href="#" onclick="confirmLogout()">
-            <i class="fas fa-sign-out-alt"></i>
-            <span>Logout</span>
-        </a>
+        
     </nav>
     
     <!-- Application Details Modal -->

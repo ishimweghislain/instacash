@@ -287,7 +287,7 @@ $inquiries = $pdo->query("SELECT * FROM inquiries ORDER BY created_at DESC")->fe
             <a href="dashboard.php">
                 <i class="fas fa-chart-line"></i> Dashboard
             </a>
-            <a href="dashboard.php">
+            <a href="applications.php">
                 <i class="fas fa-file-invoice-dollar"></i> Applications
             </a>
             <a href="inquiries.php" class="active">
@@ -342,6 +342,10 @@ $inquiries = $pdo->query("SELECT * FROM inquiries ORDER BY created_at DESC")->fe
         <a href="dashboard.php">
             <i class="fas fa-chart-line"></i>
             <span>Dashboard</span>
+        </a>
+        <a href="applications.php">
+            <i class="fas fa-file-invoice-dollar"></i>
+            <span>Apps</span>
         </a>
         <a href="inquiries.php" class="active">
             <i class="fas fa-envelope"></i>
