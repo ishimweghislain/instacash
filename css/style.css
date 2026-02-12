@@ -166,26 +166,35 @@ header {
 
 .nav-links {
     display: flex;
-    gap: 15px;
-    /* Reduced from 40px */
+    gap: 10px;
+    /* Further reduced from 15px */
     align-items: center;
 }
 
 .nav-links a {
     color: var(--text-light);
-    font-size: 0.8rem;
-    /* Reduced from 0.9rem */
+    font-size: 0.75rem;
+    /* Reduced slightly more */
     font-family: var(--font-heading);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    /* Reduced spacing */
     position: relative;
     white-space: nowrap;
-    /* Prevent wrapping */
+    display: flex;
+    align-items: center;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
+    color: var(--accent);
+}
+
+/* Fix for active buttons visibility */
+.nav-links a.btn-primary.active {
+    color: var(--primary);
+}
+
+.nav-links a.btn-primary.active:hover {
     color: var(--accent);
 }
 
@@ -200,13 +209,31 @@ header {
     transition: width 0.3s ease;
 }
 
+.nav-links a.btn::after {
+    display: none;
+    /* Remove underline from buttons */
+}
+
 .nav-links a:hover::after,
 .nav-links a.active::after {
     width: 100%;
 }
 
 .nav-links a i {
-    margin-right: 5px;
+    margin-right: 4px;
+    /* Reduced from 6px */
+    font-size: 0.75rem;
+    /* Reduced to match text size */
+    color: var(--accent);
+}
+
+/* Ensure button icons inherit correct color */
+.nav-links a.btn-primary i {
+    color: inherit;
+}
+
+/* Ensure hover icon color follows text */
+.nav-links a.btn-primary.active:hover i {
     color: var(--accent);
 }
 
