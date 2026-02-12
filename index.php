@@ -83,7 +83,7 @@
         </div>
     </section>
 
-    
+    <!-- Bottom Navigation -->
     <nav class="bottom-nav">
         <a href="index.php" class="bottom-nav-item active">
             <i class="fas fa-home"></i>
