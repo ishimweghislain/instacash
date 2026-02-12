@@ -96,14 +96,17 @@ ul {
 
 .btn {
     display: inline-block;
-    padding: 14px 32px;
+    padding: 10px 20px;
+    /* Reduced from 14px 32px */
     border-radius: 4px;
     font-weight: 600;
     font-family: var(--font-heading);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    font-size: 0.75rem;
+    /* Reduced from 1rem default */
 }
 
 .btn-primary {
@@ -135,8 +138,10 @@ ul {
 
 /* Header */
 header {
-    height: 100px;
-    padding: 0 50px;
+    height: 70px;
+    /* Reduced from 100px */
+    padding: 0 30px;
+    /* Reduced from 50px */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -152,38 +157,43 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    gap: 15px;
-    font-size: 1.5rem;
+    gap: 10px;
+    /* Reduced from 15px */
+    font-size: 1.2rem;
+    /* Reduced from 1.5rem */
     font-weight: 700;
     color: var(--white);
     letter-spacing: 1px;
-    margin-right: 2rem;
-    /* Added spacing to separate from nav */
+    margin-right: 1.5rem;
+    /* Slightly reduced */
 }
 
 .logo img {
-    height: 60px;
+    height: 40px;
+    /* Reduced from 60px */
     width: auto;
 }
 
 .nav-links {
     display: flex;
-    gap: 10px;
-    /* Further reduced from 15px */
+    gap: 8px;
+    /* Further reduced from 10px */
     align-items: center;
 }
 
 .nav-links a {
     color: var(--text-light);
-    font-size: 0.75rem;
-    /* Reduced slightly more */
+    font-size: 0.7rem;
+    /* Further reduced from 0.75rem */
     font-family: var(--font-heading);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     position: relative;
     white-space: nowrap;
     display: flex;
     align-items: center;
+    padding: 5px 8px;
+    /* Added some padding for clickability */
 }
 
 .nav-links a:hover,

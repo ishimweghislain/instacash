@@ -100,25 +100,11 @@ if (isset($_POST['login'])) {
 </head>
 <body>
 
-    <header>
-        <a href="../index.php" class="logo">
-            <img src="../logoofinstacash.png" alt="Instacash Logo">
-            <span>INSTACASH</span>
-        </a>
-        <nav class="nav-links">
-            <a href="../index.php"><i class="fas fa-home"></i> Home</a>
-            <a href="../services.php"><i class="fas fa-briefcase"></i> Services</a>
-            <a href="../requirements.php"><i class="fas fa-list-check"></i> Requirements</a>
-            <a href="../contact.php"><i class="fas fa-envelope"></i> Contact</a>
-            <a href="index.php" style="color: #fcb900;"><i class="fas fa-user-shield"></i> Admin</a>
-            <a href="../apply.php" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Apply Now</a>
-            <a href="https://instacash.rw/app.instacash.rw/login.php" class="btn btn-outline"><i class="fas fa-desktop"></i> System Portal</a>
-        </nav>
-    </header>
+    <?php include '../includes/navbar.php'; ?>
 
     <div id="toast" class="toast"></div>
 
-    <div class="login-container" style="padding-top: 150px; align-items: flex-start; min-height: 100vh; padding-bottom: 50px;">
+    <div class="login-container" style="padding-top: 50px; align-items: flex-start; min-height: 100vh; padding-bottom: 50px;">
         <div class="login-box" style="max-width: 360px; padding: 2rem;">
             <div class="login-header">
                 <!-- Logo removed -->

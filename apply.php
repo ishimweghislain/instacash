@@ -74,25 +74,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 
-    <header>
-        <a href="index.php" class="logo">
-            <img src="logoofinstacash.png" alt="Instacash Logo">
-            <span>INSTACASH</span>
-        </a>
-        <nav class="nav-links">
-            <a href="index.php"><i class="fas fa-home"></i> Home</a>
-            <a href="services.php"><i class="fas fa-briefcase"></i> Services</a>
-            <a href="requirements.php"><i class="fas fa-list-check"></i> Requirements</a>
-            <a href="contact.php"><i class="fas fa-envelope"></i> Contact</a>
-            <a href="admin/index.php" style="color: #8892b0;"><i class="fas fa-user-shield"></i> Admin</a>
-            <a href="apply.php" class="btn btn-primary active"><i class="fas fa-paper-plane"></i> Apply Now</a>
-            <a href="https://instacash.rw/app.instacash.rw/login.php" class="btn btn-outline"><i class="fas fa-desktop"></i> System Portal</a>
-        </nav>
-    </header>
+    <?php include 'includes/navbar.php'; ?>
 
     <div id="toast" class="toast"></div>
 
-    <section class="container" style="padding-top: 150px; padding-bottom: 100px;">
+    <section class="container" style="padding-top: 50px; padding-bottom: 100px;">
         <div style="max-width: 600px; margin: 0 auto;">
             <div class="form-container">
                 <h2 style="text-align: center; color: #0a194f; margin-bottom: 1rem;">Loan Application</h2>
