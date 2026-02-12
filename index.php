@@ -23,6 +23,7 @@
             <a href="requirements.php">Requirements</a>
             <a href="contact.php">Contact</a>
             <a href="admin/index.php" style="color: #8892b0;"><i class="fas fa-user-shield"></i> Admin</a>
+            <a href="https://instacash.rw/app.instacash.rw/login.php" class="btn btn-outline">System Portal</a>
             <a href="apply.php" class="btn btn-primary">Apply Now</a>
         </nav>
     </header>
