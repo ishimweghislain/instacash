@@ -1,16 +1,24 @@
 <?php
 session_start();
+
+if (isset($_SESSION['admin_id'])) {
+    header("Location: dashboard.php");
+    exit;
+}
+
 $error = '';
+
 if (isset($_POST['login'])) {
     require '../includes/db.php';
+    
     $username = $_POST['username'];
-    // In a real app, verify password hash
     $stmt = $pdo->prepare("SELECT * FROM admins WHERE username = ?");
     $stmt->execute([$username]);
     $user = $stmt->fetch();
 
     if ($user && password_verify($_POST['password'], $user['password'])) {
         $_SESSION['admin_id'] = $user['id'];
+        $_SESSION['admin_username'] = $user['username'];
         header("Location: dashboard.php");
         exit;
     } else {
@@ -22,57 +30,127 @@ if (isset($_POST['login'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login - Instacash</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
     <style>
-        body {
-            background-color: #0a194f;
-            color: white;
-            font-family: 'Outfit', sans-serif;
+        .toast {
+            visibility: hidden;
+            min-width: 300px;
+            background-color: #dc3545;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 9999;
+            right: 30px;
+            top: 30px;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+        @keyframes fadein {
+            from {right: 0; opacity: 0;}
+            to {right: 30px; opacity: 1;}
+        }
+        @keyframes fadeout {
+            from {right: 30px; opacity: 1;}
+            to {right: 0; opacity: 0;}
+        }
+        .login-container {
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #0a194f 0%, #182b6b 100%);
         }
         .login-box {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            width: 350px;
-        }
-        input {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            max-width: 450px;
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            border-radius: 4px;
         }
-        button {
-            width: 100%;
-            padding: 10px;
-            background: #fcb900;
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .login-header img {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+        .login-header h2 {
             color: #0a194f;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
+            margin: 0;
         }
-        .error { color: #ff6b6b; font-size: 0.9rem; }
+        .login-header p {
+            color: #666;
+            margin: 0.5rem 0 0;
+        }
     </style>
 </head>
 <body>
-    <div class="login-box">
-        <h2 style="text-align: center; color: #fcb900;">Admin Access</h2>
-        <?php if($error): ?><p class="error"><?= $error ?></p><?php endif; ?>
-        <form method="POST">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit" name="login">Login</button>
-        </form>
+
+    <div id="toast" class="toast"></div>
+
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <img src="../logoofinstacash.png" alt="Instacash Logo">
+                <h2><i class="fas fa-user-shield"></i> Admin Portal</h2>
+                <p>Sign in to access the dashboard</p>
+            </div>
+
+            <form method="POST" action="">
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-user"></i> Username</label>
+                    <input type="text" name="username" class="form-control" placeholder="Enter username" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" name="password" class="form-control" placeholder="Enter password" required>
+                </div>
+
+                <button type="submit" name="login" class="btn btn-primary" style="width: 100%; border: none; font-size: 1rem; padding: 14px;">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="../index.php" style="color: #0a194f; text-decoration: none;">
+                        <i class="fas fa-arrow-left"></i> Back to Website
+                    </a>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 2rem; border-left: 4px solid #fcb900;">
+                    <p style="margin: 0; color: #666; font-size: 0.85rem;">
+                        <strong style="color: #0a194f;">Default Credentials:</strong><br>
+                        Username: <code>instacash@2026</code><br>
+                        Password: <code>instacashpin2026</code>
+                    </p>
+                </div>
+            </form>
+        </div>
     </div>
+
+    <script>
+        <?php if($error): ?>
+            window.onload = function() {
+                const toast = document.getElementById('toast');
+                toast.textContent = '✗ <?= addslashes($error) ?>. Please try again.';
+                toast.className = 'toast show';
+                setTimeout(() => { toast.className = 'toast'; }, 3000);
+            }
+        <?php endif; ?>
+    </script>
+
 </body>
 </html>

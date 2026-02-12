@@ -1,57 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instacash - Instant Financial Solutions</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
     <!-- Header -->
     <header>
-        <a href="index.html" class="logo">
+        <a href="index.php" class="logo">
             <img src="logoofinstacash.png" alt="Instacash Logo">
             <span>INSTACASH</span>
         </a>
         <nav class="nav-links">
-            <a href="index.html" class="active">Home</a>
-            <a href="services.html">Services</a>
-            <a href="requirements.html">Requirements</a>
-            <a href="contact.html">Contact</a>
+            <a href="index.php" class="active">Home</a>
+            <a href="services.php">Services</a>
+            <a href="requirements.php">Requirements</a>
+            <a href="contact.php">Contact</a>
+            <a href="admin/index.php" style="color: #8892b0;"><i class="fas fa-user-shield"></i> Admin</a>
             <a href="apply.php" class="btn btn-primary">Apply Now</a>
         </nav>
-        <div style="display: flex; gap: 10px;">
-            <a href="admin/index.php" style="color: #8892b0; font-size: 0.9rem; text-decoration: none;">Admin</a>
-        </div>
     </header>
 
     <!-- Hero -->
     <section class="hero" style="position: relative;">
-        <!-- Add image for improved design -->
-        <div
-            style="position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover; opacity: 0.4; mask-image: linear-gradient(to right, transparent, black); -webkit-mask-image: linear-gradient(to right, transparent, black);">
-        </div>
-
+        <div style="position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover; opacity: 0.4; mask-image: linear-gradient(to right, transparent, black); -webkit-mask-image: linear-gradient(to right, transparent, black);"></div>
+        
         <div class="container hero-grid" style="position: relative; z-index: 2;">
             <div>
-                <h1 style="color: #fcb900; margin-bottom: 0.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">DREAM
-                    BIGGER</h1>
+                <h1 style="color: #fcb900; margin-bottom: 0.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">DREAM BIGGER</h1>
                 <h1 style="margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">WITH US</h1>
-                <p
-                    style="font-size: 1.2rem; margin-bottom: 2.5rem; max-width: 500px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
-                    Your <span class="text-accent">Fast & Trusted</span> Financial Partner. Smart Loans. Fast Decisions.
-                    Total Transparency.
+                <p style="font-size: 1.2rem; margin-bottom: 2.5rem; max-width: 500px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                    Your <span class="text-accent">Fast & Trusted</span> Financial Partner. Smart Loans. Fast Decisions. Total Transparency.
                 </p>
                 <div style="display: flex; gap: 1rem;">
                     <a href="apply.php" class="btn btn-primary">Get Started Today</a>
-                    <a href="services.html" class="btn btn-outline">Our Services</a>
+                    <a href="services.php" class="btn btn-outline">Our Services</a>
                 </div>
 
                 <div class="hero-stats">
@@ -61,10 +49,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Optional: Add a foreground image if desired, e.g., a hand holding cash or phone app mockup -->
-            <!-- <div style="display: flex; justify-content: center; align-items: center;"> -->
-            <!-- <img src="https://path-to-your-image.png" alt="Instacash App" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.3);"> -->
-            <!-- </div> -->
         </div>
     </section>
 
@@ -81,14 +65,12 @@
                 <div class="glass-card">
                     <div class="icon-box"><i class="fas fa-search-dollar"></i></div>
                     <h3>Transparency</h3>
-                    <p>Clear interest rates. No hidden fees. Simple repayment terms. We believe in total honesty with
-                        our clients.</p>
+                    <p>Clear interest rates. No hidden fees. Simple repayment terms. We believe in total honesty with our clients.</p>
                 </div>
                 <div class="glass-card">
                     <div class="icon-box"><i class="fas fa-balance-scale"></i></div>
                     <h3>Fairness & Respect</h3>
-                    <p>Objective assessment of every application. Equal treatment for all clients regardless of
-                        background.</p>
+                    <p>Objective assessment of every application. Equal treatment for all clients regardless of background.</p>
                 </div>
                 <div class="glass-card">
                     <div class="icon-box"><i class="fas fa-tachometer-alt"></i></div>
@@ -99,7 +81,32 @@
         </div>
     </section>
 
-    <!-- Contact Info / Footer Preview -->
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="index.php" class="bottom-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="services.php" class="bottom-nav-item">
+            <i class="fas fa-briefcase"></i>
+            <span>Services</span>
+        </a>
+        <a href="apply.php" class="bottom-nav-item">
+            <div style="background:var(--accent); color:var(--primary); padding:10px; border-radius:50%; margin-top:-20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                <i class="fas fa-plus" style="margin:0;"></i>
+            </div>
+        </a>
+        <a href="requirements.php" class="bottom-nav-item">
+            <i class="fas fa-list-check"></i>
+            <span>Reqs</span>
+        </a>
+        <a href="contact.php" class="bottom-nav-item">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
+    <!-- Footer -->
     <footer style="border-top: 1px solid rgba(255,255,255,0.1);">
         <div class="container">
             <div class="req-grid">
@@ -110,14 +117,12 @@
                     </div>
                     <p>Your Financial Solutions.</p>
                     <div style="margin-top: 1.5rem;">
-                        <p><i class="fas fa-map-marker-alt" style="color: #fcb900; margin-right: 10px;"></i> Remera,
-                            Kisimenti KN 5 RD/72</p>
+                        <p><i class="fas fa-map-marker-alt" style="color: #fcb900; margin-right: 10px;"></i> Remera, Kisimenti KN 5 RD/72</p>
                         <p><i class="fas fa-phone" style="color: #fcb900; margin-right: 10px;"></i> +250 794 421 142</p>
-                        <p><i class="fas fa-envelope" style="color: #fcb900; margin-right: 10px;"></i>
-                            instacashrw@gmail.com</p>
+                        <p><i class="fas fa-envelope" style="color: #fcb900; margin-right: 10px;"></i> instacashrw@gmail.com</p>
                     </div>
                 </div>
-
+                
                 <div>
                     <h3>Working Hours</h3>
                     <ul style="color: #8892b0; margin-top: 1.5rem;">
@@ -136,13 +141,13 @@
                     <h3>Quick Links</h3>
                     <ul style="margin-top: 1.5rem;">
                         <li style="margin-bottom: 10px;"><a href="apply.php">Apply for Loan</a></li>
-                        <li style="margin-bottom: 10px;"><a href="services.html">Our Services</a></li>
-                        <li style="margin-bottom: 10px;"><a href="requirements.html">Requirements</a></li>
+                        <li style="margin-bottom: 10px;"><a href="services.php">Our Services</a></li>
+                        <li style="margin-bottom: 10px;"><a href="requirements.php">Requirements</a></li>
                         <li style="margin-bottom: 10px;"><a href="admin/index.php">Admin Login</a></li>
                     </ul>
                 </div>
             </div>
-
+            
             <div class="footer-bottom">
                 &copy; 2026 Instacash Ltd. All Rights Reserved. Regulated by NBR.
             </div>
@@ -150,5 +155,4 @@
     </footer>
 
 </body>
-
 </html>
