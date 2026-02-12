@@ -106,20 +106,22 @@ if (isset($_POST['login'])) {
             <span>INSTACASH</span>
         </a>
         <nav class="nav-links">
-            <a href="../index.php">Home</a>
-            <a href="../services.php">Services</a>
-            <a href="../requirements.php">Requirements</a>
-            <a href="../contact.php">Contact</a>
+            <a href="../index.php"><i class="fas fa-home"></i> Home</a>
+            <a href="../services.php"><i class="fas fa-briefcase"></i> Services</a>
+            <a href="../requirements.php"><i class="fas fa-list-check"></i> Requirements</a>
+            <a href="../contact.php"><i class="fas fa-envelope"></i> Contact</a>
             <a href="index.php" style="color: #fcb900;"><i class="fas fa-user-shield"></i> Admin</a>
+            <a href="../apply.php" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Apply Now</a>
+            <a href="https://instacash.rw/app.instacash.rw/login.php" class="btn btn-outline"><i class="fas fa-desktop"></i> System Portal</a>
         </nav>
     </header>
 
     <div id="toast" class="toast"></div>
 
-    <div class="login-container">
-        <div class="login-box">
+    <div class="login-container" style="padding-top: 150px; align-items: flex-start; min-height: 100vh; padding-bottom: 50px;">
+        <div class="login-box" style="max-width: 360px; padding: 2rem;">
             <div class="login-header">
-                <img src="../logoofinstacash.png" alt="Instacash Logo">
+                <!-- Logo removed -->
                 <h2><i class="fas fa-user-shield"></i> Admin Portal</h2>
                 <p>Sign in to access the dashboard</p>
             </div>
@@ -135,7 +137,7 @@ if (isset($_POST['login'])) {
                     <input type="password" name="password" class="form-control" placeholder="Enter password" required>
                 </div>
 
-                <button type="submit" name="login" class="btn btn-primary" style="width: 100%; border: none; font-size: 1rem; padding: 14px;">
+                <button type="submit" name="login" class="btn btn-primary" style="width: 100%; border: none; font-size: 1rem; padding: 12px;">
                     <i class="fas fa-sign-in-alt"></i> Login
                 </button>
 

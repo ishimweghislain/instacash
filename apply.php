@@ -80,12 +80,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <span>INSTACASH</span>
         </a>
         <nav class="nav-links">
-            <a href="index.php">Home</a>
-            <a href="services.php">Services</a>
-            <a href="requirements.php">Requirements</a>
-            <a href="contact.php">Contact</a>
+            <a href="index.php"><i class="fas fa-home"></i> Home</a>
+            <a href="services.php"><i class="fas fa-briefcase"></i> Services</a>
+            <a href="requirements.php"><i class="fas fa-list-check"></i> Requirements</a>
+            <a href="contact.php"><i class="fas fa-envelope"></i> Contact</a>
             <a href="admin/index.php" style="color: #8892b0;"><i class="fas fa-user-shield"></i> Admin</a>
-            <a href="apply.php" class="btn btn-primary active">Apply Now</a>
+            <a href="apply.php" class="btn btn-primary active"><i class="fas fa-paper-plane"></i> Apply Now</a>
+            <a href="https://instacash.rw/app.instacash.rw/login.php" class="btn btn-outline"><i class="fas fa-desktop"></i> System Portal</a>
         </nav>
     </header>
 
