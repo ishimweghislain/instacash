@@ -5,15 +5,16 @@ $message = '';
 $error = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST['name']) || empty($_POST['email']) || empty($_POST['message'])) {
+    if (empty($_POST['name']) || empty($_POST['email']) || empty($_POST['phone']) || empty($_POST['message'])) {
         $error = "Please fill in all required fields.";
     } else {
         try {
-            $stmt = $pdo->prepare("INSERT INTO inquiries (name, email, subject, message) VALUES (?, ?, ?, ?)");
+            $stmt = $pdo->prepare("INSERT INTO inquiries (name, email, phone, subject, message) VALUES (?, ?, ?, ?, ?)");
             
             $stmt->execute([
                 $_POST['name'],
                 $_POST['email'],
+                $_POST['phone'],
                 $_POST['subject'],
                 $_POST['message']
             ]);
@@ -147,6 +148,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="form-group">
                             <label class="form-label"><i class="fas fa-envelope"></i> Email Address</label>
                             <input type="email" name="email" class="form-control" placeholder="john@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-phone"></i> Phone Number</label>
+                            <input type="tel" name="phone" class="form-control" placeholder="+250 78..." required>
                         </div>
 
                         <div class="form-group">

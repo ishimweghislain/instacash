@@ -99,6 +99,20 @@ if (isset($_POST['login'])) {
 </head>
 <body>
 
+    <header>
+        <a href="../index.php" class="logo">
+            <img src="../logoofinstacash.png" alt="Instacash Logo">
+            <span>INSTACASH</span>
+        </a>
+        <nav class="nav-links">
+            <a href="../index.php">Home</a>
+            <a href="../services.php">Services</a>
+            <a href="../requirements.php">Requirements</a>
+            <a href="../contact.php">Contact</a>
+            <a href="index.php" style="color: #fcb900;"><i class="fas fa-user-shield"></i> Admin</a>
+        </nav>
+    </header>
+
     <div id="toast" class="toast"></div>
 
     <div class="login-container">
@@ -129,17 +143,34 @@ if (isset($_POST['login'])) {
                         <i class="fas fa-arrow-left"></i> Back to Website
                     </a>
                 </div>
-
-                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 2rem; border-left: 4px solid #fcb900;">
-                    <p style="margin: 0; color: #666; font-size: 0.85rem;">
-                        <strong style="color: #0a194f;">Default Credentials:</strong><br>
-                        Username: <code>instacash@2026</code><br>
-                        Password: <code>instacashpin2026</code>
-                    </p>
-                </div>
             </form>
         </div>
     </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="../index.php" class="bottom-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="../services.php" class="bottom-nav-item">
+            <i class="fas fa-briefcase"></i>
+            <span>Services</span>
+        </a>
+        <a href="../apply.php" class="bottom-nav-item">
+            <div style="background:var(--accent); color:var(--primary); padding:10px; border-radius:50%; margin-top:-20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                <i class="fas fa-plus" style="margin:0;"></i>
+            </div>
+        </a>
+        <a href="../contact.php" class="bottom-nav-item">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </a>
+        <a href="index.php" class="bottom-nav-item active">
+            <i class="fas fa-user-shield"></i>
+            <span>Admin</span>
+        </a>
+    </nav>
 
     <script>
         <?php if($error): ?>

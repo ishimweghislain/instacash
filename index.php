@@ -96,13 +96,13 @@
                 <i class="fas fa-plus" style="margin:0;"></i>
             </div>
         </a>
-        <a href="requirements.php" class="bottom-nav-item">
-            <i class="fas fa-list-check"></i>
-            <span>Reqs</span>
-        </a>
         <a href="contact.php" class="bottom-nav-item">
             <i class="fas fa-envelope"></i>
             <span>Contact</span>
+        </a>
+        <a href="admin/index.php" class="bottom-nav-item">
+            <i class="fas fa-user-shield"></i>
+            <span>Admin</span>
         </a>
     </nav>
 
