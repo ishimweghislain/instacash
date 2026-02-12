@@ -2,9 +2,9 @@
 // includes/db.php - Database Connection
 
 $host = 'localhost';
-$db   = 'instacash';
-$user = 'root';
-$pass = ''; // Default XAMPP/WAMP password. UPDATE THIS IF YOU SET A PASSWORD!
+$db   = 'instacash_instacash_website';
+$user = 'instacash_instacashwebsite';
+$pass = 'r-Mpi.*{yTin';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -21,8 +21,8 @@ try {
     if ($e->getCode() == 1049) {
         try {
             $pdo = new PDO("mysql:host=$host;charset=$charset", $user, $pass, $options);
-            $pdo->exec("CREATE DATABASE IF NOT EXISTS instacash");
-            $pdo->exec("USE instacash");
+            $pdo->exec("CREATE DATABASE IF NOT EXISTS `$db`");
+            $pdo->exec("USE `$db`");
             // Import the structure
             $sql = file_get_contents(__DIR__ . '/../database.sql');
             $pdo->exec($sql);
