@@ -5,9 +5,16 @@ START TRANSACTION;
 SET time_zone = "+02:00";
 
 --
--- Table: `admins`
+-- Database: `instacash`
 --
-CREATE TABLE IF NOT EXISTS `admins` (
+CREATE DATABASE IF NOT EXISTS `instacash`;
+USE `instacash`;
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -15,18 +22,26 @@ CREATE TABLE IF NOT EXISTS `admins` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Default Admin (Password: admin123)
+-- Dumping data for table `admins`
 --
-INSERT INTO `admins` (`username`, `password`, `email`) VALUES
-('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin@instacash.rw');
+-- Password: instacashpin2026
+-- Hashed: $2y$12$Z2nO8nJFlea1SRVcVIYJROYcQNnlzNQjC/JQIYnzjqajgSd39yzRS
+--
+
+INSERT INTO `admins` (`id`, `username`, `password`, `email`) VALUES
+(1, 'instacash@2026', '$2y$12$Z2nO8nJFlea1SRVcVIYJROYcQNnlzNQjC/JQIYnzjqajgSd39yzRS', 'admin@instacash.rw')
+ON DUPLICATE KEY UPDATE password = VALUES(password);
+
+-- --------------------------------------------------------
 
 --
--- Table: `applications`
+-- Table structure for table `applications`
 --
-CREATE TABLE IF NOT EXISTS `applications` (
+
+CREATE TABLE `applications` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
@@ -39,12 +54,15 @@ CREATE TABLE IF NOT EXISTS `applications` (
   `status` enum('Pending','Approved','Rejected') DEFAULT 'Pending',
   `submitted_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
 
 --
--- Table: `inquiries`
+-- Table structure for table `inquiries`
 --
-CREATE TABLE IF NOT EXISTS `inquiries` (
+
+CREATE TABLE `inquiries` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -52,6 +70,6 @@ CREATE TABLE IF NOT EXISTS `inquiries` (
   `message` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 COMMIT;
