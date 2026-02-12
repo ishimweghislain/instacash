@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Instacash</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .toast {
+            visibility: hidden;
+            min-width: 300px;
+            background-color: #dc3545;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 9999;
+            right: 30px;
+            top: 30px;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from {
+                right: 0;
+                opacity: 0;
+            }
+
+            to {
+                right: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                right: 30px;
+                opacity: 1;
+            }
+
+            to {
+                right: 0;
+                opacity: 0;
+            }
+        }
+
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #0a194f 0%, #182b6b 100%);
+        }
+
+        .login-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            max-width: 450px;
+            width: 100%;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-header img {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .login-header h2 {
+            color: #0a194f;
+            margin: 0;
+        }
+
+        .login-header p {
+            color: #666;
+            margin: 0.5rem 0 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="toast" class="toast"></div>
+
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <img src="../logoofinstacash.png" alt="Instacash Logo">
+                <h2><i class="fas fa-user-shield"></i> Admin Portal</h2>
+                <p>Sign in to access the dashboard</p>
+            </div>
+
+            <form id="loginForm" method="POST" action="index.php">
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-user"></i> Username</label>
+                    <input type="text" name="username" class="form-control" placeholder="Enter username" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" name="password" class="form-control" placeholder="Enter password" required>
+                </div>
+
+                <button type="submit" name="login" class="btn btn-primary"
+                    style="width: 100%; border: none; font-size: 1rem; padding: 14px;">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="../index.html" style="color: #0a194f; text-decoration: none;">
+                        <i class="fas fa-arrow-left"></i> Back to Website
+                    </a>
+                </div>
+
+                <div
+                    style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 2rem; border-left: 4px solid #fcb900;">
+                    <p style="margin: 0; color: #666; font-size: 0.9rem;">
+                        <strong style="color: #0a194f;">Note:</strong> This admin panel requires a web server with PHP.
+                        For local testing, use XAMPP. For production, upload to cPanel.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('error')) {
+            const toast = document.getElementById('toast');
+            toast.textContent = '✗ Invalid credentials. Please try again.';
+            toast.className = 'toast show';
+            setTimeout(() => { toast.className = 'toast'; }, 3000);
+        }
+    </script>
+
+</body>
+
+</html>

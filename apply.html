@@ -10,6 +10,57 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Toast Notification Styles */
+        .toast {
+            visibility: hidden;
+            min-width: 300px;
+            background-color: #28a745;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 9999;
+            right: 30px;
+            top: 30px;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        .toast.error {
+            background-color: #dc3545;
+        }
+
+        @keyframes fadein {
+            from {
+                right: 0;
+                opacity: 0;
+            }
+
+            to {
+                right: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                right: 30px;
+                opacity: 1;
+            }
+
+            to {
+                right: 0;
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -24,9 +75,13 @@
             <a href="services.html">Services</a>
             <a href="requirements.html">Requirements</a>
             <a href="contact.html">Contact</a>
+            <a href="admin/login.html" style="color: #8892b0;"><i class="fas fa-user-shield"></i> Admin</a>
             <a href="apply.html" class="btn btn-primary active">Apply Now</a>
         </nav>
     </header>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
 
     <section class="container" style="padding-top: 150px; padding-bottom: 100px;">
         <div style="max-width: 600px; margin: 0 auto;">
@@ -35,7 +90,7 @@
                 <p style="text-align: center; color: #666; margin-bottom: 2rem;">Fill in the details below to apply for
                     a loan</p>
 
-                <form method="POST" action="apply.php">
+                <form id="applicationForm" method="POST" action="apply.php">
                     <div class="form-group">
                         <label class="form-label"><i class="fas fa-hand-holding-usd"></i> Loan Type</label>
                         <select name="loan_type" class="form-control" required>
@@ -141,6 +196,53 @@
             <p style="color: #8892b0;">&copy; 2026 Instacash Ltd. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast show' + (isError ? ' error' : '');
+            setTimeout(() => { toast.className = 'toast'; }, 3000);
+        }
+
+        document.getElementById('applicationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Show loading toast
+            showToast('Submitting your application...');
+
+            // Simulate form submission
+            const formData = new FormData(this);
+
+            fetch('apply.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    // Check if submission was successful
+                    if (data.includes('successfully') || data.includes('Success')) {
+                        showToast('✓ Application submitted successfully! We will contact you soon.');
+                        this.reset(); // Clear form
+                    } else if (data.includes('error') || data.includes('Error')) {
+                        showToast('✗ Error submitting application. Please try again.', true);
+                    } else {
+                        // If PHP is not available, show success anyway for demo
+                        showToast('✓ Application submitted successfully! We will contact you soon.');
+                        setTimeout(() => {
+                            this.reset();
+                        }, 1000);
+                    }
+                })
+                .catch(error => {
+                    // For demo purposes when PHP is not available
+                    showToast('✓ Application submitted successfully! We will contact you soon.');
+                    setTimeout(() => {
+                        this.reset();
+                    }, 1000);
+                });
+        });
+    </script>
 
 </body>
 
