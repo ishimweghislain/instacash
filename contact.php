@@ -106,5 +106,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </section>
 
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="services.html" class="bottom-nav-item">
+            <i class="fas fa-briefcase"></i>
+            <span>Services</span>
+        </a>
+        <a href="apply.php" class="bottom-nav-item">
+            <div style="background:var(--accent); color:var(--primary); padding:10px; border-radius:50%; margin-top:-20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                <i class="fas fa-plus" style="margin:0;"></i>
+            </div>
+        </a>
+        <a href="requirements.html" class="bottom-nav-item">
+            <i class="fas fa-list-check"></i>
+            <span>Reqs</span>
+        </a>
+        <a href="contact.html" class="bottom-nav-item active">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
 </body>
 </html>

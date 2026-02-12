@@ -27,7 +27,7 @@
             <a href="contact.html">Contact</a>
             <a href="apply.php" class="btn btn-primary">Apply Now</a>
         </nav>
-        <div class="nav-links">
+        <div style="display: flex; gap: 10px;">
             <a href="admin/index.php" style="color: #8892b0; font-size: 0.9rem; text-decoration: none;">Admin</a>
         </div>
     </header>
@@ -61,6 +61,10 @@
                     </div>
                 </div>
             </div>
+            <!-- Optional: Add a foreground image if desired, e.g., a hand holding cash or phone app mockup -->
+            <!-- <div style="display: flex; justify-content: center; align-items: center;"> -->
+            <!-- <img src="https://path-to-your-image.png" alt="Instacash App" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.3);"> -->
+            <!-- </div> -->
         </div>
     </section>
 
@@ -95,33 +99,7 @@
         </div>
     </section>
 
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-        <a href="index.html" class="bottom-nav-item active">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </a>
-        <a href="services.html" class="bottom-nav-item">
-            <i class="fas fa-briefcase"></i>
-            <span>Services</span>
-        </a>
-        <a href="apply.php" class="bottom-nav-item">
-            <div
-                style="background:var(--accent); color:var(--primary); padding:10px; border-radius:50%; margin-top:-20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-                <i class="fas fa-plus" style="margin:0;"></i>
-            </div>
-        </a>
-        <a href="requirements.html" class="bottom-nav-item">
-            <i class="fas fa-list-check"></i>
-            <span>Reqs</span>
-        </a>
-        <a href="contact.html" class="bottom-nav-item">
-            <i class="fas fa-envelope"></i>
-            <span>Contact</span>
-        </a>
-    </nav>
-
-    <!-- Footer -->
+    <!-- Contact Info / Footer Preview -->
     <footer style="border-top: 1px solid rgba(255,255,255,0.1);">
         <div class="container">
             <div class="req-grid">

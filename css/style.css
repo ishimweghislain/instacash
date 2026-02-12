@@ -27,6 +27,8 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
+    padding-bottom: 80px;
+    /* Space for bottom nav on mobile */
 }
 
 h1,
@@ -242,6 +244,8 @@ header {
     padding: 2.5rem;
     transition: all 0.3s ease;
     height: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 .glass-card:hover {
@@ -262,6 +266,15 @@ header {
     color: var(--accent);
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
+}
+
+.service-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--glass-border);
 }
 
 /* Pricing/Requirements Table Style */
@@ -352,7 +365,8 @@ header {
 /* Footer */
 footer {
     background: #020c1b;
-    padding: 4rem 0 2rem;
+    padding: 4rem 0 6rem;
+    /* Extra padding for bottom nav */
     border-top: 1px solid var(--glass-border);
 }
 
@@ -364,6 +378,44 @@ footer {
     color: var(--text-muted);
     font-size: 0.9rem;
 }
+
+/* Bottom Navigation */
+.bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 25, 79, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--glass-border);
+    padding: 10px 0;
+    z-index: 2000;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.bottom-nav-item i {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+}
+
+.bottom-nav-item.active,
+.bottom-nav-item:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -381,5 +433,13 @@ footer {
 
     header {
         padding: 0 20px;
+    }
+
+    .bottom-nav {
+        display: flex;
+    }
+
+    body {
+        padding-bottom: 70px;
     }
 }
