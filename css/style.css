@@ -444,8 +444,20 @@ footer {
     border-top: 1px solid var(--glass-border);
     padding: 10px 0;
     z-index: 2000;
-    justify-content: space-around;
+    justify-content: flex-start;
+    /* Changed from space-around to allow scrolling */
     align-items: center;
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
+    gap: 15px;
+    /* Add spacing between items */
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.bottom-nav::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar */
 }
 
 .bottom-nav-item {
@@ -454,8 +466,13 @@ footer {
     align-items: center;
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    /* Slightly reduced font size */
     transition: all 0.3s ease;
+    min-width: 50px;
+    /* Ensure items don't get too squished */
+    flex-shrink: 0;
+    /* Prevent shrinking */
 }
 
 .bottom-nav-item i {

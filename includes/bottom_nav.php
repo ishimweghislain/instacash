@@ -32,4 +32,12 @@ if (!isset($current_page)) {
         <i class="fas fa-envelope"></i>
         <span>Contact</span>
     </a>
+    <a href="https://instacash.rw/app.instacash.rw/login.php" class="bottom-nav-item">
+        <i class="fas fa-sign-in-alt"></i>
+        <span>Portal</span>
+    </a>
+    <a href="<?php echo $base; ?><?php echo $is_admin ? 'index.php' : 'admin/index.php'; ?>" class="bottom-nav-item <?php echo ($is_admin) ? 'active' : ''; ?>">
+        <i class="fas fa-user-shield"></i>
+        <span>Admin</span>
+    </a>
 </nav>
