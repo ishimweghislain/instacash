@@ -15,7 +15,7 @@
 
     <!-- Hero -->
     <section class="hero" style="position: relative;">
-        <div style="position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover; opacity: 0.4; mask-image: linear-gradient(to right, transparent, black); -webkit-mask-image: linear-gradient(to right, transparent, black);"></div>
+        <div style="position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover; opacity: 0.4; mask-image: linear-gradient(to right, transparent, black); -webkit-mask-image: linear-gradient(to right, transparent, black);"></div>
         
         <div class="container hero-grid" style="position: relative; z-index: 2;">
             <div>
@@ -68,30 +68,7 @@
         </div>
     </section>
 
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-        <a href="index.php" class="bottom-nav-item active">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </a>
-        <a href="services.php" class="bottom-nav-item">
-            <i class="fas fa-briefcase"></i>
-            <span>Services</span>
-        </a>
-        <a href="apply.php" class="bottom-nav-item">
-            <div style="background:var(--accent); color:var(--primary); padding:10px; border-radius:50%; margin-top:-20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-                <i class="fas fa-plus" style="margin:0;"></i>
-            </div>
-        </a>
-        <a href="contact.php" class="bottom-nav-item">
-            <i class="fas fa-envelope"></i>
-            <span>Contact</span>
-        </a>
-        <a href="admin/index.php" class="bottom-nav-item">
-            <i class="fas fa-user-shield"></i>
-            <span>Admin</span>
-        </a>
-    </nav>
+    <?php include 'includes/bottom_nav.php'; ?>
 
     <!-- Footer -->
     <footer style="border-top: 1px solid rgba(255,255,255,0.1);">

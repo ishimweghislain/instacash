@@ -67,30 +67,7 @@
         </div>
     </section>
 
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-        <a href="index.php" class="bottom-nav-item">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </a>
-        <a href="services.php" class="bottom-nav-item active">
-            <i class="fas fa-briefcase"></i>
-            <span>Services</span>
-        </a>
-        <a href="apply.php" class="bottom-nav-item">
-            <div style="background:var(--accent); color:var(--primary); padding:10px; border-radius:50%; margin-top:-20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-                <i class="fas fa-plus" style="margin:0;"></i>
-            </div>
-        </a>
-        <a href="requirements.php" class="bottom-nav-item">
-            <i class="fas fa-list-check"></i>
-            <span>Reqs</span>
-        </a>
-        <a href="contact.php" class="bottom-nav-item">
-            <i class="fas fa-envelope"></i>
-            <span>Contact</span>
-        </a>
-    </nav>
+    <?php include 'includes/bottom_nav.php'; ?>
 
     <footer style="text-align:center; padding:3rem 0; border-top:1px solid rgba(255,255,255,0.1);">
         <p style="color:#8892b0;">&copy; 2026 Instacash Ltd.</p>

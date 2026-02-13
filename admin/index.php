@@ -136,30 +136,7 @@ if (isset($_POST['login'])) {
         </div>
     </div>
 
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-        <a href="../index.php" class="bottom-nav-item">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </a>
-        <a href="../services.php" class="bottom-nav-item">
-            <i class="fas fa-briefcase"></i>
-            <span>Services</span>
-        </a>
-        <a href="../apply.php" class="bottom-nav-item">
-            <div style="background:var(--accent); color:var(--primary); padding:10px; border-radius:50%; margin-top:-20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-                <i class="fas fa-plus" style="margin:0;"></i>
-            </div>
-        </a>
-        <a href="../contact.php" class="bottom-nav-item">
-            <i class="fas fa-envelope"></i>
-            <span>Contact</span>
-        </a>
-        <a href="index.php" class="bottom-nav-item active">
-            <i class="fas fa-user-shield"></i>
-            <span>Admin</span>
-        </a>
-    </nav>
+    <?php include '../includes/bottom_nav.php'; ?>
 
     <script>
         <?php if($error): ?>

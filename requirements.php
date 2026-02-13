@@ -16,7 +16,7 @@
         <div class="container">
             <h1 class="text-center" style="margin-bottom:3rem;">Minimum Items Required</h1>
 
-            <div class="req-grid" style="grid-template-columns: 1fr 1fr; gap:3rem;">
+            <div class="req-grid">
                 
                 <!-- Salary Advance Requirements -->
                 <div class="req-card">
@@ -87,30 +87,7 @@
         </div>
     </section>
 
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-        <a href="index.php" class="bottom-nav-item">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </a>
-        <a href="services.php" class="bottom-nav-item">
-            <i class="fas fa-briefcase"></i>
-            <span>Services</span>
-        </a>
-        <a href="apply.php" class="bottom-nav-item">
-            <div style="background:var(--accent); color:var(--primary); padding:10px; border-radius:50%; margin-top:-20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-                <i class="fas fa-plus" style="margin:0;"></i>
-            </div>
-        </a>
-        <a href="requirements.php" class="bottom-nav-item active">
-            <i class="fas fa-list-check"></i>
-            <span>Reqs</span>
-        </a>
-        <a href="contact.php" class="bottom-nav-item">
-            <i class="fas fa-envelope"></i>
-            <span>Contact</span>
-        </a>
-    </nav>
+    <?php include 'includes/bottom_nav.php'; ?>
 
     <!-- Footer -->
     <footer style="text-align:center; padding:3rem 0; border-top:1px solid rgba(255,255,255,0.1);">
